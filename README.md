@@ -11,7 +11,7 @@ A simple Go library for managing systemd daemons.
 
 1. **Import the package in your Go project:**
    ```go
-   import "github.com/jf17/jf17-daemon-manager-systemd/service"
+   import "github.com/jf17/daemon-manager-systemd/service"
 
 2. **Build and run your application (using 'sudo').**
 

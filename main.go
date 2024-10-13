@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	manager "github.com/jf17/jf17-daemon-manager-systemd/service"
+	manager "github.com/jf17/daemon-manager-systemd/service"
 	"log"
 	"net/http"
 	"os"
