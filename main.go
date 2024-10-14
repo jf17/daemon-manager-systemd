@@ -108,7 +108,7 @@ func main() {
 		}
 	}
 	if name == "" || path == "" || port == "" {
-		fmt.Println("Problems with arguments when launching the application.\n Example: sudo daemon-manager-systemd -port 8080 -name apache2 -path /lib/systemd/system/")
+		fmt.Println("Problems with arguments when launching the application.\n Example: sudo ./daemon-manager-systemd -port 8080 -name apache2 -path /lib/systemd/system/")
 		log.Println("Problems with arguments when launching the application.")
 		return
 	}
@@ -123,6 +123,6 @@ func main() {
 	http.HandleFunc("/"+name+"/stop", handleStopRequest)
 	http.HandleFunc("/"+name+"/restart", handleRestartRequest)
 	http.HandleFunc("/"+name+"/status", handleStatusRequest)
-	fmt.Printf("Server listening on port %s...", port)
+	fmt.Printf("Server listening on port %s...\n", port)
 	log.Fatal(http.ListenAndServe(port, nil))
 }
