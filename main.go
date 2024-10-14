@@ -101,7 +101,7 @@ func main() {
 		case "-path":
 			path = os.Args[i+1]
 		case "-port":
-			port = os.Args[i+1]
+			port = ":" + os.Args[i+1]
 		default:
 			fmt.Println("Invalid argument:", os.Args[i])
 			return
@@ -123,6 +123,12 @@ func main() {
 	http.HandleFunc("/"+name+"/stop", handleStopRequest)
 	http.HandleFunc("/"+name+"/restart", handleRestartRequest)
 	http.HandleFunc("/"+name+"/status", handleStatusRequest)
+
 	fmt.Printf("Server listening on port %s...\n", port)
-	log.Fatal(http.ListenAndServe(port, nil))
+	fmt.Println("http://localhost" + port + "/" + name + "/status")
+	errListenAndServe := http.ListenAndServe(port, nil)
+	if errListenAndServe != nil {
+		log.Fatalf("Error ListenAndServe %s", errListenAndServe)
+		return
+	}
 }
