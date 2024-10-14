@@ -20,7 +20,13 @@ A simple Go library for managing systemd daemons.
 * **Systemd:** This library relies on the systemd init system for managing daemons.
 
 
+## Example Usage:
+
+![Systemd Daemon Manager Example](image.png)
+
+
 
 ## Contributing:
 
 Contributions are welcome! Please open an issue or submit a pull request.
+
