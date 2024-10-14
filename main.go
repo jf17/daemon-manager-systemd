@@ -119,10 +119,10 @@ func main() {
 
 	systemDRecord = manager.SystemDRecord{Name: name, Path: path}
 
-	http.HandleFunc("/start", handleStartRequest)
-	http.HandleFunc("/stop", handleStopRequest)
-	http.HandleFunc("/restart", handleRestartRequest)
-	http.HandleFunc("/status", handleStatusRequest)
+	http.HandleFunc("/"+name+"/start", handleStartRequest)
+	http.HandleFunc("/"+name+"/stop", handleStopRequest)
+	http.HandleFunc("/"+name+"/restart", handleRestartRequest)
+	http.HandleFunc("/"+name+"/status", handleStatusRequest)
 	fmt.Printf("Server listening on port %s...", port)
 	log.Fatal(http.ListenAndServe(port, nil))
 }
