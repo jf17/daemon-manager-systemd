@@ -108,7 +108,7 @@ func main() {
 		}
 	}
 	if name == "" || path == "" || port == "" {
-		fmt.Println("Problems with arguments when launching the application.\n Example: sudo demon-manager -port 8080 -name apache2 -path /lib/systemd/system/")
+		fmt.Println("Problems with arguments when launching the application.\n Example: sudo daemon-manager-systemd -port 8080 -name apache2 -path /lib/systemd/system/")
 		log.Println("Problems with arguments when launching the application.")
 		return
 	}
