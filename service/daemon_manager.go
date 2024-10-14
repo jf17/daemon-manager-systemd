@@ -4,7 +4,6 @@ import (
 	"errors"
 	"os"
 	"os/exec"
-	"regexp"
 	"strconv"
 	"strings"
 )
@@ -70,17 +69,9 @@ func (linux *SystemDRecord) isInstalled() bool {
 func (linux *SystemDRecord) checkRunning() (string, bool) {
 	output, err := exec.Command("systemctl", "status", linux.Name+".service").Output()
 	if err == nil {
-		if matched, err := regexp.MatchString("Active: active", string(output)); err == nil && matched {
-			reg := regexp.MustCompile("Main PID: ([0-9]+)")
-			data := reg.FindStringSubmatch(string(output))
-			if len(data) > 1 {
-				return "Service (pid  " + data[1] + ") is running...", true
-			}
-			return "Service is running...", true
-		}
+		return string(output), true
 	}
-
-	return "Service is stopped", false
+	return "Service " + linux.Name + " is stopped", false
 }
 
 // Start the service
